@@ -408,6 +408,30 @@
       user-select:none;
     }
     .iconBtn:hover{background: rgba(255,255,255,.10)}
+/* Mobile Hero Layout Improvement */
+@media (max-width: 980px){
+
+  .heroGrid{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+
+  /* Keep headline first */
+  .heroTopText{
+    order:1;
+  }
+
+  /* Show carousel immediately after headline */
+  .heroCarousel{
+    order:2;
+  }
+
+  /* Push rest of text below images */
+  .heroBottomText{
+    order:3;
+  }
+}
 
     /* ===================== Signature Projects ===================== */
     .projGrid{
@@ -615,6 +639,7 @@
     <div class="wrap">
       <div class="heroGrid">
         <div class="heroCopy">
+          <div class="heroTopText">
           <div class="kicker">Luxury interiors • Turnkey execution</div>
           <h1>Transforming Hyderabad homes and commercial spaces with elegant interiors</h1>
           <p class="lead">Complete turnkey interior solutions — crafted to match your taste, from classic traditional elegance to modern luxury.</p>
@@ -636,6 +661,7 @@
           </div>
 
           <div class="hr" aria-hidden="true"></div>
+        </div>
         </div>
 
         <!-- BIG AUTO-SCROLL HERO CAROUSEL (instead of 4 small tiles) -->
@@ -1086,5 +1112,6 @@
 </script>
 </body>
 </html>
+
 
 
