@@ -46,57 +46,76 @@
 
     /* ===================== Header ===================== */
     header{
-      position:sticky;top:0;z-index:20;
-      background: rgba(15,12,10,.65);
+      position:sticky;top:0;z-index:30;
       backdrop-filter: blur(12px);
-      border-bottom:1px solid rgba(255,255,255,.08);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(15,12,10,.60);
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
     .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
       padding:14px 0;
     }
-
     .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
+      display:flex;align-items:center;gap:12px;min-width:220px;
       text-decoration:none;
     }
-
     .logo{
-      width:38px;height:38px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      font-weight:900;
+      width:38px;height:38px;border-radius:12px;
+      display:grid;place-items:center;
+      font-weight:850;letter-spacing:.4px;font-size:13px;
       background: rgba(176,129,56,.22);
-      border:1px solid rgba(176,129,56,.35);
-      color:var(--brass2);
+      border: 1px solid rgba(176,129,56,.35);
+      color: var(--brass2);
+      user-select:none;
     }
+    .brand strong{display:block;font-size:14px;letter-spacing:.2px}
+    .brand span{display:block;font-size:12px;color:var(--muted)}
 
-    nav{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-
+    nav{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
     nav a{
-      text-decoration:none;
-      font-size:13px;
-      opacity:.9;
-      padding:10px 10px;
-      border-radius:999px;
+      text-decoration:none;font-size:13px;opacity:.92;
+      padding: 10px 10px;
+      border-radius: 999px;
     }
-
-    nav a:hover{text-decoration:underline}
+    nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:6px}
     nav a.active{
+      border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.14);
-      opacity:1;
+      text-decoration:none;
     }
 
+    .menuBtn{
+      display:none;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      border-radius:999px;
+      padding:10px 12px;
+      font-weight:800;
+      letter-spacing:.12px;
+      cursor:pointer;
+    }
+
+    .mobileNav{ display:none; }
+
+    @media (max-width: 860px){
+      nav{display:none}
+      .menuBtn{display:inline-flex}
+      .mobileNav{
+        display:none;
+        padding: 0 0 14px;
+      }
+      .mobileNav a{
+        display:block;
+        padding:12px 0;
+        text-decoration:none;
+        border-top:1px solid rgba(255,255,255,.08);
+        opacity:.95;
+      }
+      .mobileNav a:hover{opacity:1}
+      .mobileNav.show{display:block}
+    }
     /* ===================== Hero ===================== */
     .hero{
       padding:70px 0 40px;
@@ -245,23 +264,31 @@
 <header>
   <div class="wrap">
     <div class="topbar">
-      <a class="brand" href="index.html">
-        <div class="logo">DD</div>
+      <a class="brand" href="index.html" aria-label="D’Designer’s Diary Home">
+        <div class="logo" aria-hidden="true">DD</div>
         <div>
-          <strong>D’Designer’s Diary</strong><br>
-          <span style="font-size:12px;color:rgba(243,238,233,.75)">
-            Luxury Interiors • Hyderabad
-          </span>
+          <strong>D’Designer’s Diary</strong>
+          <span>Luxury Turnkey Interiors • Hyderabad</span>
         </div>
       </a>
 
-      <nav>
-        <a href="index.html">Home</a>
+      <button class="menuBtn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav">Menu</button>
+
+      <nav aria-label="Primary navigation">
+        <a class="active" href="index.html" aria-current="page">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="portfolio.html">Portfolio</a>
-        <a class="active" href="contact.html">Contact</a>
+        <a href="contact.html">Contact</a>
       </nav>
+    </div>
+
+    <div class="mobileNav" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
     </div>
   </div>
 </header>
@@ -342,7 +369,16 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+
+  if(menuBtn){
+    menuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('show');
+    });
+  }
 </script>
 
 </body>
 </html>
+
