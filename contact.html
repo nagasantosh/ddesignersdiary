@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#14100e" />
+  <meta name="color-scheme" content="dark" />
+
+  <title>Contact | D’Designer’s Diary Hyderabad</title>
+  <meta name="description" content="Contact D’Designer’s Diary for luxury turnkey interior design services in Hyderabad. Chat on WhatsApp or email to book a consultation." />
+
+  <style>
+    /* ===================== THEME 3: Warm Premium ===================== */
+    :root{
+      --bg0:#0f0d0c;
+      --bg1:#14100e;
+      --bg2:#1b1410;
+
+      --text:#f3eee9;
+      --muted:rgba(243,238,233,.84);
+
+      --brass:#b08138;
+      --brass2:#f4d7a3;
+
+      --shadow: 0 18px 55px rgba(0,0,0,.36);
+      --shadowSoft: 0 12px 35px rgba(0,0,0,.28);
+
+      --r: 18px;
+      --max: 1100px;
+      --pad: 18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(900px 600px at 20% 10%, rgba(176,129,56,.22), transparent 60%),
+        linear-gradient(180deg, var(--bg2), var(--bg1), var(--bg0));
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+
+    /* ===================== Header ===================== */
+    header{
+      position:sticky;top:0;z-index:20;
+      background: rgba(15,12,10,.65);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+    }
+
+    .logo{
+      width:38px;height:38px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      font-weight:900;
+      background: rgba(176,129,56,.22);
+      border:1px solid rgba(176,129,56,.35);
+      color:var(--brass2);
+    }
+
+    nav{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      text-decoration:none;
+      font-size:13px;
+      opacity:.9;
+      padding:10px 10px;
+      border-radius:999px;
+    }
+
+    nav a:hover{text-decoration:underline}
+    nav a.active{
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.14);
+      opacity:1;
+    }
+
+    /* ===================== Hero ===================== */
+    .hero{
+      padding:70px 0 40px;
+      text-align:center;
+    }
+
+    .kicker{
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.2px;
+      text-transform:uppercase;
+      color:rgba(244,215,163,.92);
+    }
+
+    h1{
+      margin:12px 0;
+      font-size:44px;
+      line-height:1.1;
+    }
+
+    p.lead{
+      max-width:70ch;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    /* ===================== Contact Layout ===================== */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      padding:40px 0;
+    }
+
+    @media(max-width:900px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .card{
+      border-radius:var(--r);
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadowSoft);
+      padding:20px;
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size:18px;
+      font-weight:900;
+    }
+
+    .card p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* ===================== Buttons ===================== */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:13px;
+      text-decoration:none;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:.15s;
+    }
+
+    .btn.primary{
+      background:var(--brass);
+      color:#140f0a;
+    }
+
+    .btn.primary:hover{filter:brightness(1.05)}
+
+    .btn.ghost{
+      background: rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.16);
+    }
+
+    .btn.ghost:hover{background: rgba(255,255,255,.10)}
+
+    .btnRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    /* ===================== Form ===================== */
+    form{
+      display:grid;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    input, textarea{
+      width:100%;
+      padding:12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.25);
+      color:var(--text);
+      font-size:14px;
+      outline:none;
+    }
+
+    textarea{min-height:120px;resize:vertical}
+
+    input:focus, textarea:focus{
+      border-color: rgba(176,129,56,.65);
+      box-shadow: 0 0 0 3px rgba(176,129,56,.18);
+    }
+
+    button.submitBtn{
+      border:none;
+      background:var(--brass);
+      color:#140f0a;
+      font-weight:950;
+      padding:13px;
+      border-radius:999px;
+      cursor:pointer;
+    }
+
+    button.submitBtn:hover{filter:brightness(1.05)}
+
+    /* ===================== Footer ===================== */
+    footer{
+      padding:30px 0 50px;
+      border-top:1px solid rgba(255,255,255,.08);
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="index.html">
+        <div class="logo">DD</div>
+        <div>
+          <strong>D’Designer’s Diary</strong><br>
+          <span style="font-size:12px;color:rgba(243,238,233,.75)">
+            Luxury Interiors • Hyderabad
+          </span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a class="active" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="kicker">Get in touch</div>
+      <h1>Let’s Design Your Dream Space</h1>
+      <p class="lead">
+        Reach out for luxury turnkey interiors across Hyderabad.
+        WhatsApp is the fastest way to begin.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT GRID -->
+  <section>
+    <div class="wrap">
+      <div class="grid">
+
+        <!-- Direct Contact -->
+        <div class="card">
+          <h2>Contact Directly</h2>
+          <p>
+            Share your space details and requirements. We’ll guide you through
+            the next steps for consultation.
+          </p>
+
+          <div class="btnRow">
+            <a class="btn primary"
+               href="https://wa.me/919000000000?text=Hi%20D%E2%80%99Designer%E2%80%99s%20Diary%2C%20I%20want%20a%20consultation%20for%20interiors."
+               target="_blank" rel="noopener">
+              Chat on WhatsApp
+            </a>
+
+            <a class="btn ghost"
+               href="mailto:info@ddesignersdiary.com?subject=Interior%20Consultation%20Request">
+              Email Us
+            </a>
+          </div>
+
+          <p style="margin-top:18px;">
+            📍 Serving all areas of Hyderabad.
+          </p>
+        </div>
+
+        <!-- Inquiry Form -->
+        <div class="card">
+          <h2>Quick Inquiry Form</h2>
+          <p>
+            This form is front-end ready. Later, we’ll connect it to Formspree or Netlify.
+          </p>
+
+          <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="tel" placeholder="Phone Number" required>
+            <input type="text" placeholder="Project Type (Villa / Kitchen / Office)">
+            <textarea placeholder="Tell us about your space and requirements"></textarea>
+
+            <button class="submitBtn" type="submit">
+              Send Inquiry
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> D’Designer’s Diary • Luxury Turnkey Interiors Hyderabad
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
