@@ -296,6 +296,26 @@
       background: rgba(255,255,255,.05);
       color: rgba(243,238,233,.92);
     }
+    @media (max-width: 980px){
+  .heroGrid{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+
+  /* IMPORTANT: flatten heroCopy so its children can be reordered
+     alongside heroCarousel */
+  .heroCopy{ display: contents; }
+
+  /* Now these orders will actually work */
+  .heroTopText{ order: 1; }
+  .heroCarousel{ order: 2; }
+  .heroBottomText{ order: 3; }
+
+  /* add spacing because heroCopy padding won’t apply with display:contents */
+  .heroTopText{ padding: 8px 6px 0; }
+  .heroBottomText{ padding: 0 6px; }
+}
 
     /* ===================== Hero Carousel (big images) ===================== */
     .heroCarousel{
@@ -1112,6 +1132,7 @@
 </script>
 </body>
 </html>
+
 
 
 
